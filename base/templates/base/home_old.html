@@ -1,0 +1,28 @@
+{% extends 'main.html'%}
+
+{% block content %}
+
+<style>
+    .Home-screen{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+</style>
+
+<div class="Home-screen"> <!-- This div is for all the elements in home page -->
+    <div id="Browse-Topic">
+        {% include 'base/topic_component.html' %}
+    </div>
+    <div id="Room"> <!-- This div is for Rooms -->
+        <h4>{{room_count}} rooms available</h4>
+        <a href="{% url 'createRoom' %}">Create new room</a>
+
+        {% include 'base/feed_component.html' %}
+    </div>
+    <div>
+        {% include 'base/activity_component.html' %}
+    </div>
+</div>
+
+{% endblock content %}
